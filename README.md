@@ -1,6 +1,11 @@
 # GPTDemo
 基于Vue+springBoot的前后端分离项目，实现了对OpenAI的ChatGPT模型的基本调用。
 - - -
+## 6.28更新
+- 后端可以通过配置文件配置请求模型的名称，例:`model=xxx`。OpenAI模型更新如图：
+![](/static/modelupdate.png)
+- 前端添加动态加载样式
+- - -
 ## 配置
 ### 前端
 - 如果后端的端口被占用需要更改，那么同时也需要去更改前端的跨域配置，在前端的根目录vue.config.js文件中更改proxy中target的参数值为后端的地址。

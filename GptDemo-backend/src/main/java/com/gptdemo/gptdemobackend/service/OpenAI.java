@@ -29,7 +29,7 @@ public class OpenAI {
 
     public String getChatResult(String message){
         Map<String,Object> requestMap=new HashMap<>();
-        requestMap.put("model","gpt-3.5-turbo");
+        requestMap.put("model",chatGPTConfig.getModel());
         List<Map<String,String>> requestList= new ArrayList<>();
         Map<String,String> messageMap=new HashMap<>();
         messageMap.put("role","user");
@@ -37,7 +37,7 @@ public class OpenAI {
         requestList.add(messageMap);
         requestMap.put("messages",requestList);
         String requestContent= JSONUtil.toJsonStr(requestMap);
-        String body= HttpRequest.post(ChatGPTConfig.apiEndPoint)
+        String body= HttpRequest.post(chatGPTConfig.getApiEndPoint())
                 .header("Authorization","Bearer "+chatGPTConfig.getToken())
                 .header("Content-Type","application/json")
                 .body(requestContent)

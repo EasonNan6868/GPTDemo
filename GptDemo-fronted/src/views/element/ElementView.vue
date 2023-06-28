@@ -25,7 +25,7 @@
           <span style=" line-height: 30px">ChatGPT响应结果为:</span>
         </el-row>
         <el-row>
-          <el-card class="box-card">
+          <el-card class="box-card" v-loading="loading">
             <div class="text item">
               {{resultMessage}}
             </div>
@@ -49,16 +49,19 @@ export default {
   data() {
     return {
       textarea: '',
-      resultMessage:''
+      resultMessage:'',
+      loading: false
     }
   },
   methods:{
     invoke(){
+      this.loading=true
       axios.post('/api/gpt/invoke',{
         message:this.textarea
           }
       ).then((result)=>{
         this.resultMessage=result.data;
+        this.loading=false
       })
     }
   }

@@ -18,8 +18,8 @@ import org.springframework.context.annotation.Configuration;
 @Data
 public class ChatGPTConfig {
 
-    public static String apiEndPoint="https://api.openai.com/v1/chat/completions";
-
+    private String apiEndPoint="https://api.openai.com/v1/chat/completions";
+    private String model;
     private String token;
     private String proxy_host;
     private String proxy_port;
